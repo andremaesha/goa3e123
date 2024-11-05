@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e 10%, #fad0c4 100%);
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+}
+
+.title {
+    font-size: 3em;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.message {
+    font-size: 1.5em;
+    margin-top: 20px;
+    animation: fadeIn 3s ease-in-out;
+}
+
+.typing-text {
+    display: inline;
+    color: #ffd1dc;
+    border-right: 2px solid #ffd1dc;
+    font-size: 1.5em;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 4s steps(40, end), blink 0.5s step-end infinite alternate;
+}
+
+/* Heart animation */
+.floating-hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.heart {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background-color: #ff9a9e;
+    transform: rotate(-45deg);
+    animation: float 6s ease-in-out infinite;
+}
+
+.heart::before, .heart::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: #ff9a9e;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 10px;
+}
+
+/* Heart positions and delays */
+.heart1 { top: 10%; left: 20%; animation-delay: 0s; }
+.heart2 { top: 30%; left: 40%; animation-delay: 2s; }
+.heart3 { top: 60%; left: 10%; animation-delay: 4s; }
+.heart4 { top: 80%; left: 50%; animation-delay: 1s; }
+.heart5 { top: 90%; left: 70%; animation-delay: 3s; }
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    from { border-color: transparent; }
+    to { border-color: #ffd1dc; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(-45deg); opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(-45deg); opacity: 0; }
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5em;
+    }
+
+    .message {
+        font-size: 1.2em;
+    }
+
+    .typing-text {
+        font-size: 1.2em;
+    }
+
+    .heart {
+        width: 15px;
+        height: 15px;
+    }
+
+    .heart::before, .heart::after {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2em;
+    }
+
+    .message {
+        font-size: 1em;
+    }
+
+    .typing-text {
+        font-size: 1em;
+    }
+
+    .heart {
+        width: 12px;
+        height: 12px;
+    }
+
+    .heart::before, .heart::after {
+        width: 12px;
+        height: 12px;
+    }
+}
